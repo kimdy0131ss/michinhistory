@@ -12,6 +12,33 @@
   var BUCKET_NAME = ['새 카드', '학습 중', '복습', '완료'];
   var RIGHT_GAP = [1, 3, 7, 21];
 
+  // ---------- 테마 ----------
+  // head 안 인라인 스크립트가 같은 값을 문자열 그대로 읽으므로 JSON 으로 감싸지 않는다.
+  var LS_THEME = 'hx.theme.v1';
+  var themeBtn = document.getElementById('themeBtn');
+
+  function currentTheme() {
+    var t = document.documentElement.getAttribute('data-theme');
+    return t === 'dark' ? 'dark' : 'light';
+  }
+
+  function applyTheme(mode) {
+    document.documentElement.setAttribute('data-theme', mode);
+    if (!themeBtn) return;
+    var label = mode === 'dark' ? '밝은 화면으로 바꾸기' : '어두운 화면으로 바꾸기';
+    themeBtn.setAttribute('aria-label', label);
+    themeBtn.setAttribute('title', label);
+  }
+
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var next = currentTheme() === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      try { localStorage.setItem(LS_THEME, next); } catch (e) { /* 파일로 열면 무시 */ }
+    });
+  }
+  applyTheme(currentTheme());
+
   // ---------- 저장 ----------
   function load(key, fallback) {
     try {
