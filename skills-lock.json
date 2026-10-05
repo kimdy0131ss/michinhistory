@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "flashcards": {
+      "source": "anthropics/claude-for-legal",
+      "sourceType": "github",
+      "skillPath": "law-student/skills/flashcards/SKILL.md",
+      "computedHash": "35cc37bce9210600b9b1025dbd4a4535041d86024ab58c1f77ded39f85853230"
+    },
+    "quiz": {
+      "source": "readwiseio/readwise-skills",
+      "sourceType": "github",
+      "skillPath": "skills/quiz/SKILL.md",
+      "computedHash": "240a3e3d63228fc3f71316d9de1cb69af7595ca1bfdcf9889ffe8052535367ca"
+    }
+  }
+}
